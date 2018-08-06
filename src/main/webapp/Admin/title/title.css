@@ -1,0 +1,18 @@
+DIV#qTip {
+	BORDER-RIGHT: 1px solid #666;
+	PADDING-RIGHT: 3px;
+	BORDER-TOP: 1px solid #666;
+	DISPLAY: none;
+	PADDING-LEFT: 3px;
+	Z-INDEX: 1000;
+	BACKGROUND: #FFFFFF;
+	PADDING-BOTTOM: 3px;
+	FONT: 12px Verdana, Arial, Helvetica, sans-serif;
+	BORDER-LEFT: 1px solid #666;
+	COLOR: #333333;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: 1px solid #666;
+	POSITION: absolute;
+	TEXT-ALIGN: left;
+	filter: Alpha(Opacity=90);
+}

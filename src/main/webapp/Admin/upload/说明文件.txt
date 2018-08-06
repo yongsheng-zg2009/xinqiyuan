@@ -1,0 +1,13 @@
+无组件上传带真实进度条
+
+其中
+upload.asp为核心代码，除非特殊需要，一般不需要修改
+demo.htm是演示无刷新进度条（IE5.5+支持）
+demo.asp为处理demo.asp上传的文件，因为演示需要，在Demo.asp中仅仅上传，不作保存，如果需要保存，只需去掉相关注释即可。
+Example_Normal.htm，一个普通的上传的例子
+Example_Normal_RadomFilename.htm， 一个保存将上传文件命名为随机文件名的例子
+Example_Progress.htm，一个带进度条的上传例子
+Example_DataBase.htm，将上传文件保存到数据库的例子，upload.mdb，保存上传文件的数据库，UploadFile.asp为下载上传到数据库的文件的程序
+
+如果有相关技术问题，请到
+开放实验室（http://www.openlab.net.cn）的Web版提问

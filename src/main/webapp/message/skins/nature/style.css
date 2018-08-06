@@ -1,0 +1,468 @@
+/*
+            === SranM Guestbook StyleSheet File ===
+            ===    Name: Nature
+            ===     For: V2.21+
+            ===      By: Howlion
+            ===      On: 2005-08-23
+            ===      In: Luoyang, China
+            ========================================
+*/
+
+body {
+	padding: 0px;
+	margin: 0px;
+	color: #505050;
+	text-align: center;	
+	background: #FFF url(images/bodybg.gif) repeat-x fixed top;
+	font: 11px/1.4  Arial, Helvetica, sans-serif, 宋体;
+}
+html>body {
+	font-size: 12px;
+}
+
+A:link, A:visited, A:active {text-decoration: underline; color: #2F2F2F;}
+A:hover {text-decoration: underline; color: #79A417;}
+
+#wrapper {					/* 页面框架 */
+	margin-left: auto;
+	margin-right: auto;
+	width: 752px;
+}
+
+#wrapperInner {
+	text-align: left;
+}
+
+h1,h2,h3,p,form,ul {margin: 0px; padding: 0px;}
+h2 {font-size: 12px; display: inline;}
+h3 {font-size: 12px; display: inline;}
+ul {list-style-type: none;}
+img {vertical-align: middle; border: 0px none;}
+html>body img {max-width: 100%; height: auto;}
+img.face {width: 30px; height: 30px;}
+img.emot {width: 20px; height: 20px;}
+img.imgLink {width: 15px; height: 15px;}
+.red {color: #FF0000; font-family: 宋体, Arial, Helvetica, sans-serif;}
+.autoSizeImg {clear: both; width: 100%; overflow-x: auto;}
+.normalText {font-weight: normal; font-size: 12px;}
+.noteText {font-weight: normal; color: #868686;font-family: verdana, arial, helvetica, sans-serif;}
+.Highlight {color: #FF5402; font-weight: bold;}
+.backText {clear: both;margin-top: 20px; text-align: center;}
+.keyword{font-weight: bold; color: white; background-color: #CC3333}
+.divLine {clear:both;width: 100%;height: 12px;border-top: 1px solid #E7E7E7;}
+#smallWrapper {margin: 12px; border: 3px solid #9CCD29; background: #FFFFFF; height: 100%; text-align: left;}
+hr {clear: both; margin-right: 8px; height: 1px; border-top: 1px dashed; color: #929292;}
+hr.normalHR {clear: both; margin: 0px 18px; height: 1px; border-top: 1px dashed; color: #929292;}
+.button {border: 1px solid #6C6C6C; background: #FFFFFF;}
+td{word-break: break-all;}
+table {
+	table-layout:fixed;
+	font: 12px/1.4 宋体;
+	color: #505050;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	font: 11px/1.4  Arial, Helvetica, sans-serif, 宋体;
+}
+html>body table {
+	font-size: 12px;
+}
+
+input,textarea,select {
+	font-size: 12px;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+#topArea {					/* 页面顶部区域 */
+	clear: both;
+	width: 100%;
+}
+
+#topArea-logo {				/* LOGO显示区域 */
+	padding: 5px 0px 5px 3px;
+}
+
+#logo {}
+
+#gbInfo {	/* 留言本信息栏（网站名、管理员名、访问统计、留言数等） */
+	clear: both;
+	color: #B4B4B4;
+}
+
+#gbInfo A:link, #gbInfo A:visited, #gbInfo A:active {
+	text-decoration: none;
+	color: #B4B4B4;
+}
+
+#gbInfo A:hover {
+	text-decoration: none;
+	color: #808080;
+}
+
+#gbInfo-info {
+	float: left;
+	padding: 3px;
+}
+
+#gbInfo-pageName {
+	float: right;
+	font-weight: bold;
+	display: inline;
+	padding: 3px 6px;
+	color: #E6E6E6;
+	background: #93BF35;
+}
+
+#nav {						/* 导航栏 */
+	clear: both;
+	float: right;
+	background: #FFFFFF;
+}
+
+#navLink {
+	float: right;
+	text-align: right;
+	width: 500px;
+	border-top: 15px solid #93BF35;
+}
+
+#navLink li {
+	float: left;
+	margin: 5px;
+	height: 25px;
+}
+
+#navLink li a {
+	text-decoration: none;
+	color: #93BF35;
+}
+
+#navLink li a:hover, #navLink li a.selected {
+	text-decoration: none;
+	color: #797979;
+	border-bottom: 1px dashed #719328;
+}
+
+#mainContent {					/* 主内容区 */
+	clear: both;
+	padding-bottom: 20px;
+	width: 752px;
+	background: #FFFFFF;
+	text-align: center;
+	border-left: 6px solid #93BF35;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	width: 746px;
+}
+
+#gbcontent {
+	clear: both;
+	margin: 10px 0;
+	padding-top: 39px;
+	text-align: center;
+}
+
+html>body #gbcontent {
+	margin-bottom: 35px;
+}
+
+.page {						/* 页码 */
+	clear: both;
+	text-align: right;
+	margin: 0px 18px 12px 0px;
+}
+
+.page A:link, .page A:visited, .page A:active {
+
+	color: #626262;
+	text-decoration: none;
+}
+.page A:hover {
+
+	color: #111111;
+	text-decoration: underline;
+}
+.currtNum {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.adminLinks {				/* 留言下部的管理链接 */
+	clear: both;
+	margin: 5px 0 0 0;
+	padding: 5px;
+	height: 15px;
+	text-align: right;
+	background: #EFEFEF;
+}
+.adminLinks A:link, .adminLinks A:visited, .adminLinks A:active   {
+	text-decoration: none;
+}
+
+.noItem {
+	clear: both;
+	margin-top: 60px;
+	padding: 10px;
+	width: 350px;
+	height: 120px;
+	border: 1px solid #838383;
+	background: #EEEEEE;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+#footer {					/* 页脚 */
+	clear: both;
+	padding: 10px 0px 10px 8px;
+	color: #2D2D2D;
+	background: #EBEBEB url(images/bottom_bg.gif) no-repeat 450px 10px;
+	border-left: 6px solid #93BF35;
+	border-bottom: 1px solid #93BF35;
+}
+
+/*
+                 =====================================
+                 === StyleSheet File for index.asp ===
+                 =====================================
+*/
+
+.msgArea {				/* 留言显示容器 */
+	clear:both;
+	width: 100%;
+	padding: 15px 0px 0px 0px;
+	text-align: left;
+	border-top: 1px solid #E7E7E7;
+}
+
+.msgArea-clear {
+	clear: both;
+	visibility: hidden;
+}
+
+.msgArea-left {			/* 头像、称呼 */
+	float: left;
+	margin: 0px 0px 0px 3px;
+	padding: 2px;
+}
+
+.msgArea-left ul {
+	list-style-type: none;
+}
+
+.msgArea-left li {
+	width: 190px;
+	text-align: center;
+}
+
+.userFace {}
+
+.face-bulletin {
+	border: 0px;
+	width: 80px;
+	height: 80px;
+}
+
+.face-normal {
+	border: 0px;
+	width: 80px;
+	height: 80px;
+}
+
+.userName {
+	margin: 10px 0px 10px 0px;
+	font-size: 12px;
+}
+
+.userName-whisper {
+	color: #A9A216;
+}
+
+.userName-istop {
+	color: #648F12;
+}
+
+.msgArea-right {	/* 标题、时间、留言内容、回复 */
+	float: right;
+	width: 520px;
+	margin: 0 8px 10px 0;
+}
+
+.msgTitle {
+	clear: both;
+	margin: 0px 4px;
+	color: #808080;
+	font-weight: bold;
+}
+html>body .msgTitle {margin: 0;}
+
+.msgTitle-whisper {
+	color: #BEBEBE;
+}
+
+.msgTitle-istop {
+	color: #6699FF;
+}
+
+.msgTime {
+	float: left;
+	margin: 0px 0px 0px 2px;
+	color: #808080;
+	font-weight: bold;
+}
+
+.userContact {
+	float: right;
+	margin: 0px 6px 0px 0px;
+	width: 200px;
+	text-align: right;
+}
+
+.msgContent {
+	clear: both;
+	margin: 10px 4px 5px 3px;
+	padding-top: 8px;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.msgContent-whisper {
+	color: #BEBEBE;
+	padding: 10px 6px;
+}
+
+.msgReply {
+	clear: both;
+	margin: 10px 0px 5px 0px;
+	padding: 5px;
+}
+
+.msgReply-top {
+	padding: 3px;
+	color: #729429;
+	font-weight: bold;
+	background: #F6F6F6;
+	border-bottom: 1px dashed #D1E7A5;
+}
+
+.msgReply-content {
+	padding: 9px;
+	color: #4F4F4F;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+/*
+                 ======================================
+                 === StyleSheet File for other page ===
+                 ======================================
+*/
+
+.row {				/* 显示表单内容的行 */
+	clear: both;
+	margin: 10px 10px 5px 0px;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.row-left {
+	float: left;
+	width: 210px;
+	text-align: right;
+}
+
+.row-right {
+	float: right;
+	text-align: left;
+	width: 496px;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	width: 508px;
+}
+html>body .row-right {
+	margin-top: 2px;
+}
+
+.row-right-graybg {
+	width: 430px;
+	background: #EBEBEB;
+	margin-top: 3px;
+	padding: 3px;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	width: 370px;
+}
+
+#notice {
+	clear: both;
+	padding: 8px;
+	text-align: left;
+	background: #EFEFEF;
+}
+
+.batchArea-left {
+	float: left;
+	width: 150px;
+}
+
+.batchArea-right {
+	float: right;
+	text-align: left;
+	width: 580px;
+}
+html>body .batchArea-right {
+	width: 550px;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	width: 560px;
+}
+
+.batchArea-topRight {
+	float: right;
+	margin-top: 8px;
+	text-align: right;
+	width: 580px;
+}
+html>body .batchArea-topRight {
+	width: 550px;
+	margin-bottom: 10px;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	width: 560px;
+}
+
+#submitForm {clear: both;} /* 提交留言的表单 */
+
+#searchForm {			/* 输入搜索内容的表单 */
+	padding: 20px 40px 20px 190px;
+	text-align: left;
+	height: 230px;
+}
+
+#helpContent {				/* 帮助内容 */
+	padding: 20px 25px 20px 70px;
+	text-align: left;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+}
+
+#helpContent li {
+	margin: 8px;
+	padding-left: 20px;
+	text-align: left;
+	list-style: none;
+	background: url(images/list_bg.gif) no-repeat 0px 3px;
+}
+
+#loginForm {				/* 后台登陆表单 */
+	height: 290px;
+	text-align: center;
+}
+
+#errorBox {					/* 错误显示容器 */
+	padding: 50px;
+	height: 230px;
+	text-align: left;
+	color: #CC0000;
+}
+
+/*
+== End Style==
+*/

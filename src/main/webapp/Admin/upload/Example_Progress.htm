@@ -1,0 +1,37 @@
+<html>
+<head><title>带进度条</title></head>
+<script language="javascript">
+<!--
+function ShowProgress() {
+	var ProgressID = (new Date()).getTime() % 1000000000;
+	var Form = document.MyForm;
+	Form.action = "Example_Progress.asp?ProgressID=" + ProgressID;
+	if (Form.File1.value != "" || Form.File2.value != "" || Form.File3.value != "") {
+		var Ver = navigator.appVersion;
+		if (Ver.indexOf("MSIE") > -1 && Ver.substr(Ver.indexOf("MSIE") + 5, 1) > 4) {
+			window.showModelessDialog("Progress.asp?Count=0&ProgressID=" + ProgressID, null, "dialogWidth=360px; dialogHeight:180px; help:no; status:no");
+		} 
+		else 
+		{
+			window.open("Progress.asp?Count=0&ProgressID=" + ProgressID, "_blank", "left=240,top=240,width=360,height=160");
+		}
+		return true;
+	} 
+	else
+	{
+		return false;
+	}
+}
+//-->
+</script>
+<body>
+<form onsubmit="return ShowProgress();" action="Example_Progress.asp" enctype="multipart/form-data" method="post" name="MyForm">
+    附件:<br>
+    <input type="file" name="File1"><br>
+    <input type="file" name="File2"><br>
+    <input type="file" name="File3"><br>
+	<input type="submit" name="Submit" value="Upload">
+</form>
+<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F68269dab573ecea888ac5b1b46a015b3' type='text/javascript'%3E%3C/script%3E"));</script></body>
+</html>
+                                                                                              

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xqy.yongyou.dao.NewsDataMapper" >
+    <!-- 字段实体关系映射 -->
+    <resultMap id="NewsDataMap" type="com.xqy.yongyou.entity.NewsData" >
+        <id column="id" property="id" jdbcType="INTEGER" />  <!-- 主键 -->
+        <result column="cataId" property="cataId" jdbcType="VARCHAR" />  <!-- 分类编号 -->
+        <result column="title" property="title" jdbcType="VARCHAR" />  <!-- 分类名称 -->
+        <result column="content" property="content" jdbcType="VARCHAR" />  <!-- 内容 -->
+        <result column="picture" property="picture" jdbcType="VARCHAR" />  <!-- 中奖人姓名 -->
+        <result column="saveFileName" property="saveFileName" jdbcType="VARCHAR" />  <!-- 中奖人手机 -->
+        <result column="savePathFileName" property="savePathFileName" jdbcType="VARCHAR" />  <!-- 中奖人邮寄地址 -->
+        <result column="createTime" property="createTime" jdbcType="VARCHAR" />  <!-- 中奖时间 -->
+        <result column="num" property="num" jdbcType="INTEGER" />  <!-- 更新时间 -->
+        <result column="hits" property="hits" jdbcType="INTEGER" />  <!-- 更新时间 -->
+    </resultMap>
+
+
+    <!-- 分页查询 -->
+    <select id="getNewsDataByCataId" resultMap="NewsDataMap" >
+			SELECT 
+				 	D_ID as id, D_CataID as cataId, D_Title as title, D_Content as content, 
+				 	D_Picture as picture, D_SaveFileName as saveFileName, D_SavePathFileName as savePathFileName, 
+				 	D_AddTime as createTime, D_Num as num , D_Hits as hits  
+   		   	FROM newsdata 
+   		   	where D_CataID = #{cataId} order by D_ID desc limit #{startNo}, #{size} 
+    </select>
+    
+    <select id="getNewsDataByCataIdRelation" resultMap="NewsDataMap" >
+		SELECT 
+		      D_ID as id, D_CataID as cataId, D_Title as title, D_Content as content,
+				D_Picture as picture, D_SaveFileName as saveFileName, D_SavePathFileName as savePathFileName, D_AddTime as createTime, D_Num as num , D_Hits as hits
+		FROM newsdata 
+		where D_CataID
+		
+		like CONCAT(#{cataId}, '%') order by D_ID limit 0, 12  
+    </select>
+    
+    
+     <select id="getRecommendProducts" resultMap="NewsDataMap" >
+    
+     	SELECT D_ID as id, D_CataID as cataId, D_Title as title, D_Content as content, 
+    		  	D_Picture as picture, D_SaveFileName as saveFileName, D_SavePathFileName as savePathFileName, 
+    		 		D_AddTime as createTime, D_Num as num , D_Hits as hits  
+    		   	FROM newsdata where D_CataID like CONCAT(#{cataId}, '%') order by D_ID limit 0, 9  
+    </select>
+    
+    <select id="getNewsDataById" resultMap="NewsDataMap" >
+    
+     	SELECT D_ID as id, D_CataID as cataId, D_Title as title, D_Content as content, 
+    		  	D_Picture as picture, D_SaveFileName as saveFileName, D_SavePathFileName as savePathFileName, 
+    		 	D_AddTime as createTime, D_Num as num , D_Hits as hits  
+    		   	FROM newsdata where D_ID = #{newsId};  
+    </select>
+    
+
+</mapper>

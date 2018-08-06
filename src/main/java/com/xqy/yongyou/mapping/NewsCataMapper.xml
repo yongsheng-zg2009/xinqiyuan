@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xqy.yongyou.dao.NewsCataMapper" >
+
+    <!-- 字段实体关系映射 -->
+    <resultMap id="BaseResultMap" type="com.xqy.yongyou.entity.NewsCata" >
+        <id column="id" property="id" jdbcType="INTEGER" />  <!-- 主键 -->
+        <result column="title" property="title" jdbcType="VARCHAR" />  <!-- 分类名称 -->
+        <result column="rootId" property="rootId" jdbcType="VARCHAR" />  <!-- 分类编号 -->
+        <result column="number" property="number" jdbcType="INTEGER" />  <!-- 分类下文章数据量 -->
+        <result column="remark" property="remark" jdbcType="VARCHAR" />  <!-- 备注 -->
+        <result column="createTime" property="createTime" jdbcType="VARCHAR" />  <!--  -->
+    </resultMap>
+ 
+    <!-- 分页查询 -->
+    <select id="getNewsCataByCataId"  resultMap="BaseResultMap" >
+   	 		SELECT 
+				    C_ID as id, C_Title as title, C_RootID as rootId,
+				    C_Number as number, C_Remark as remark, 
+				    C_AddTime as createTime
+    		  FROM newscata 
+    		  
+    		  where C_RootID = #{cataNo};
+    </select>
+    
+    <select id="listAll"  resultMap="BaseResultMap" >
+ 	 	SELECT 
+		    C_ID as id, C_Title as title, C_RootID as rootId,
+		    C_Number as number, C_Remark as remark, 
+		    C_AddTime as createTime
+  		FROM newscata ;
+    </select>
+</mapper>

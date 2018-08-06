@@ -1,0 +1,76 @@
+body{background:url(top.jpg) center top no-repeat; margin-top:0px;}
+TD {
+	FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px
+}
+TH {
+	 FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px
+}
+.text01 {
+	LINE-HEIGHT: 20px; FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.text02 {
+	LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; COLOR: #ffffff; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.text03 {
+	LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; COLOR: #ff1c10; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.text04 {
+	LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 16px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.text05 {
+	LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; COLOR: #000000; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.text06 {
+	LINE-HEIGHT: 15px; FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.text07 {
+	LINE-HEIGHT: 15px; FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 16px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.text_big {
+	LINE-HEIGHT: 28px; FONT-FAMILY: "宋体"; COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A:link {
+	FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-FAMILY: "宋体"; COLOR: #ff0101; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+A:active {
+	FONT-FAMILY: "宋体"; COLOR: #ff0101; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+A.menu:link {
+	FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.menu:visited {
+	FONT-FAMILY: "宋体"; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.menu:hover {
+	FONT-FAMILY: "宋体"; COLOR: #ff0101; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+.ctl00_myMenu2_0 {
+	POSITION: absolute; BACKGROUND-COLOR: white; DISPLAY: none; VISIBILITY: hidden; TOP: 0px; LEFT: 0px
+}
+A.menu:active {
+	FONT-FAMILY: "宋体"; COLOR: #ff0101; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.white:link {
+	FONT-FAMILY: "宋体"; COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.white:visited {
+	FONT-FAMILY: "宋体"; COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.white:hover {
+	FONT-FAMILY: "宋体"; COLOR: #000000; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.white:active {
+	FONT-FAMILY: "宋体"; COLOR: #000000; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+.jyvcbodsf {
+	POSITION: absolute; BACKGROUND-COLOR: white; DISPLAY: none; VISIBILITY: hidden; TOP: 0px; LEFT: 0px
+}
+.jycderthj {
+	POSITION: absolute; BACKGROUND-COLOR: white; DISPLAY: none; VISIBILITY: hidden; TOP: 0px; LEFT: 0px
+}

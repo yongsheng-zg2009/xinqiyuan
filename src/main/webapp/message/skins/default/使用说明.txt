@@ -1,0 +1,6 @@
+1 将default文件夹上传到留言本的“skins”文件夹下
+2 登陆管理员后台，进入“设置留言本”
+3 将 皮肤文件夹 设置为 skins/default
+4 将 表情文件夹 设置为 skins/default/emot
+5 将 头像文件夹 设置为 skins/default/userfaces
+6 提交完成
