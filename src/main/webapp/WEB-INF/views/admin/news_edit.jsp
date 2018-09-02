@@ -25,157 +25,100 @@
 
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
-<!-- 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>${newsData.id }--${newsData.title}咨询编辑</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_editors.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="form_editors.html#">选项1</a>
-                                </li>
-                                <li><a href="form_editors.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content no-padding">
-
-                        <div class="summernote">
-                        ${newsData.content }
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
- -->
-
-   <div class="row">
-        <div class="col-sm-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>所有表单元素
-                        <small>包括自定义样式的复选和单选按钮</small>
-                    </h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li>
-                                <a href="form_basic.html#">选项1</a>
-                            </li>
-                            <li>
-                                <a href="form_basic.html#">选项2</a>
-                            </li>
-                        </ul>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <form method="get" class="form-horizontal">
-                    
-                     <div class="form-group">
-                            <label class="col-sm-2 control-label">id</label>
-
-                            <div class="col-sm-10">
-                                <input type="text" disabled="" placeholder="资源id" class="form-control" value="${newsData.id }">
-                            </div>
-                     </div>
-                     <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">普通</label>
-
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" value="${newsData.title }">
-                            </div>
-                        </div>
-                       <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">只读</label>
-
-                            <div class="col-sm-10">
-                                <input type="text" disabled="" placeholder="只读" class="form-control">
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Select</label>
-
-                            <div class="col-sm-10">
-                                <select class="form-control m-b" name="account">
-                                    <option>选项 1</option>
-                                    <option>选项 2</option>
-                                    <option>选项 3</option>
-                                    <option>选项 4</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="hr-line-dashed"></div>
-                        <h5><b>内容文本编辑：</b>【${newsData.id }--${newsData.title}】</h5>
-                          <div class="summernote">
-                        ${newsData.content }
-                        </div>
-                        
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-primary" type="submit">保存内容</button>
-                                <button class="btn btn-white" type="submit">取消</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+	   <div class="row">
+	        <div class="col-sm-12">
+	            <div class="ibox float-e-margins">
+	                <div class="ibox-title">
+	                    <h5>所有表单元素
+	                        <small>包括自定义样式的复选和单选按钮</small>
+	                    </h5>
+	                    <div class="ibox-tools">
+	                        <a class="collapse-link">
+	                            <i class="fa fa-chevron-up"></i>
+	                        </a>
+	                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+	                            <i class="fa fa-wrench"></i>
+	                        </a>
+	                        <ul class="dropdown-menu dropdown-user">
+	                            <li>
+	                                <a href="form_basic.html#">选项1</a>
+	                            </li>
+	                            <li>
+	                                <a href="form_basic.html#">选项2</a>
+	                            </li>
+	                        </ul>
+	                        <a class="close-link">
+	                            <i class="fa fa-times"></i>
+	                        </a>
+	                    </div>
+	                </div>
+	                <div class="ibox-content">
+	                    <form method="post" class="form-horizontal" id="updateForm" action="/manager/updateNews">
+	                    
+	                     <div class="form-group">
+	                            <label class="col-sm-2 control-label">id</label>
+	
+	                            <div class="col-sm-10">
+	                                <input type="text"  readonly="readonly" placeholder="资源id" class="form-control" value="${newsData.id }" name="newsId"/>
+	                            </div>
+	                     </div>
+	                     <div class="hr-line-dashed"></div>
+	                        <div class="form-group">
+	                            <label class="col-sm-2 control-label">标题</label>
+	
+	                            <div class="col-sm-10">
+	                                <input type="text" class="form-control" value="${newsData.title }" name="title">
+	                            </div>
+	                        </div>
+							<div class="hr-line-dashed"></div>
+	                        <div class="form-group">
+	                            <label class="col-sm-2 control-label">所属类型</label>
+	
+	                            <div class="col-sm-10">
+	                                <input type="text" class="form-control" value="${newsData.cataId }" >
+	                            </div>
+	                        </div>
+	                        <div class="hr-line-dashed"></div>
+	                        <div class="form-group">
+	                            <label class="col-sm-2 control-label">更改所属分类</label>
+	
+	                            <div class="col-sm-10">
+	                                <select class="form-control m-b" name="changeCataId">
+	                                <c:forEach items="${allCatas}" var="data">
+	                                <option value="${data.rootId }">${data.rootId }- ${data.title }</option>
+	                                </c:forEach>
+	                                </select>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="hr-line-dashed"></div>
+	                        <h5><b>内容文本编辑：</b>【${newsData.id }--${newsData.title}】</h5>
+	                          <div class="summernote" id="summernoteContent">
+	                        ${newsData.content }
+	                        </div>
+	                        <textarea name="newsContent" id="newsContent" name="newsContent" hidden="hiden"></textarea>
+	                        <div class="hr-line-dashed"></div>
+	                        <div class="form-group">
+	                            <div class="col-sm-4 col-sm-offset-2">
+	                                <button class="btn btn-primary" type="button" onclick="javascript:dosubmit();">保存内容</button>
+	                                <button class="btn btn-white" type="submit">取消</button>
+	                            </div>
+	                        </div>
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     </div>
 
     <!-- 全局js -->
     <script src="/acs/common/hplus-4.0/js/jquery.min.js?v=2.1.4"></script>
     <script src="/acs/common/hplus-4.0/js/bootstrap.min.js?v=3.3.5"></script>
-
-
-
     <!-- 自定义js -->
     <script src="/acs/common/hplus-4.0/js/content.js?v=1.0.0"></script>
-
-
     <!-- SUMMERNOTE -->
     <script src="/acs/common/hplus-4.0/js/plugins/summernote/summernote.min.js"></script>
     <script src="/acs/common/hplus-4.0/js/plugins/summernote/summernote-zh-CN.js"></script>
-
     <script>
         $(document).ready(function () {
 
@@ -196,6 +139,13 @@
             var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
             $('.click2edit').destroy();
         };
+        
+        function dosubmit(){
+        	var summernoteContent = $("#summernoteContent").html();
+        	$("#newsContent").val(summernoteContent);
+        	
+        	$("#updateForm").submit();
+        }
     </script>
 
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
