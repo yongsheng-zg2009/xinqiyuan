@@ -1,3 +1,0 @@
-<%Response.Redirect("Login.asp")%>
-
-                                                                                              
