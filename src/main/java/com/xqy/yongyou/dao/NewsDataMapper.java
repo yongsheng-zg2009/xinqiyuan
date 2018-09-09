@@ -51,15 +51,15 @@ public interface NewsDataMapper /* extends BaseMapper<NewsData>*/{
 
     List<NewsData> getNewsDataByCataId(@Param("cataId") String cataId,@Param("startNo")int startNo,@Param("size")int size);
     
+    int insertData(/*@Param("newsData")*/ NewsData newsData);
     
-
     List<NewsData> getNewsDataByCataIdRelation(@Param("cataId") String cataId);
     
     
 
     List<NewsData> getRecommendProducts(@Param("cataId") String cataId);
     
-    
+    List<NewsData> listAllNews(@Param("startNo") int startNo, @Param("size") int size);
     
 
     NewsData getNewsDataById(@Param("newsId") Integer newsId);

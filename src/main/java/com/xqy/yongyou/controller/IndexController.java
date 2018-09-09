@@ -108,6 +108,11 @@ public class IndexController {
 		mv.addObject("newsDatas", newsDatas);
         return mv;
     }
+
+	
+	
+	
+	
 	
 	/**
 	 * 获取最新的公司动态

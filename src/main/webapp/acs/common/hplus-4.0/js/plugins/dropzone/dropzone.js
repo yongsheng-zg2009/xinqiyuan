@@ -846,6 +846,7 @@
                     fields = Dropzone.createElement(fieldsString);
                     if (this.element.tagName !== "FORM") {
                         form = Dropzone.createElement("<form action=\"" + this.options.url + "\" enctype=\"multipart/form-data\" method=\"" + this.options.method + "\"></form>");
+                        consol
                         form.appendChild(fields);
                     } else {
                         this.element.setAttribute("enctype", "multipart/form-data");

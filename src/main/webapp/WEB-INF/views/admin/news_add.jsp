@@ -21,6 +21,7 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
 	   <div class="row">
+	   
 	        <div class="col-sm-12">
 	            <div class="ibox float-e-margins">
 	                <div class="ibox-title">
@@ -44,16 +45,9 @@
 	                    </div>
 	                </div>
 	                <div class="ibox-content">
-	                    <form method="post" class="form-horizontal" id="updateForm" action="/manager/updateNews">
+	                    <form method="post" class="form-horizontal" id="addNewsForm" action="/manager/addNews">
 	                    
-	                     <div class="form-group">
-	                            <label class="col-sm-2 control-label">id</label>
-	
-	                            <div class="col-sm-10">
-	                                <input type="text"  readonly="readonly" placeholder="资源id" class="form-control" value="${newsData.id }" name="newsId"/>
-	                            </div>
-	                     </div>
-	                     <div class="hr-line-dashed"></div>
+     
 	                        <div class="form-group">
 	                            <label class="col-sm-2 control-label">标题</label>
 	
@@ -61,34 +55,29 @@
 	                                <input type="text" class="form-control" value="${newsData.title }" name="title">
 	                            </div>
 	                        </div>
-							<div class="hr-line-dashed"></div>
-	                        <div class="form-group">
-	                            <label class="col-sm-2 control-label">所属类型</label>
-	
-	                            <div class="col-sm-10">
-	                                <input type="text" class="form-control" value="${newsData.cataId }" >
-	                            </div>
-	                        </div>
 	                        <div class="hr-line-dashed"></div>
 	                        <div class="form-group">
-	                            <label class="col-sm-2 control-label">更改所属分类</label>
+	                            <label class="col-sm-2 control-label">选择分类</label>
 	
 	                            <div class="col-sm-10">
-	                                <select class="form-control m-b" name="changeCataId">
+	                                <select class="form-control m-b" name="cataId">
 	                                <c:forEach items="${allCatas}" var="data">
-	                                <option value="${data.rootId }">${data.rootId }- ${data.title }</option>
+	                              		  <option value="${data.rootId }">${data.rootId }- ${data.title }</option>
 	                                </c:forEach>
 	                                </select>
 	                            </div>
 	                        </div>
 	                        
 	                        <div class="hr-line-dashed"></div>
-	                        <h5><b>内容文本编辑：</b>【${newsData.id }--${newsData.title}】</h5>
+	                        <h5><b>添加内容文本：</b></h5>
 	                          <div class="summernote" id="summernoteContent">
-	                        ${newsData.content }
-	                        </div>
+	                       		 ${newsData.content }
+	                       	  </div>
 	                        <textarea name="newsContent" id="newsContent" name="newsContent" hidden="hiden"></textarea>
 	                        <div class="hr-line-dashed"></div>
+
+                
+                
 	                        <div class="form-group">
 	                            <div class="col-sm-4 col-sm-offset-2">
 	                                <button class="btn btn-primary" type="button" onclick="javascript:dosubmit();">保存内容</button>
@@ -134,11 +123,7 @@
         function dosubmit(){
         	var summernoteContent = $("#summernoteContent").html();
         	$("#newsContent").val($(".note-editable").html());
-        	
- 
-        //	alert($(".note-editable").html());
-       // console.log($(".note-editable").html());
-        	$("#updateForm").submit();
+        	$("#addNewsForm").submit();
         }
     </script>
 

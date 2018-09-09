@@ -1,6 +1,7 @@
 package com.xqy.yongyou.controller;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,17 +32,23 @@ public class ManagerNewsController {
 	private NewsDataMapper newsDataMapper;
 
 	/**
-	 * 所有的新闻
+	 * 查看所有的新闻咨询
 	 * @return
 	 */
 	@RequestMapping("listall/news")
     public ModelAndView listAllNews(){
 		ModelAndView mv = new ModelAndView("admin/all_news");
-		//left cataId;   
+		
+		List<NewsData> cataNews = newsDataMapper.listAllNews( 0, 10000);
+		mv.addObject("cataNews", cataNews);
         return mv;
     }
 	
-	
+	/**
+	 * 进入咨询编辑页面
+	 * @param newsId
+	 * @return
+	 */
 	@RequestMapping("news2edit/{newsId}")
     public ModelAndView news2edit(@PathVariable("newsId") String newsId){
 		ModelAndView mv = new ModelAndView("admin/news_edit");  
@@ -57,7 +64,22 @@ public class ManagerNewsController {
     }
 	
 	
-	@RequestMapping(value = "updateNews",method={ RequestMethod.POST})
+	/**
+	 * 进入添加咨询页面
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "toNewsAddPage")
+	public ModelAndView toNewsAddPage(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mv = new ModelAndView("admin/news_add"); 
+		List<NewsCata> allCatas = newsCataMapper.listAll();
+
+		mv.addObject("allCatas", allCatas);
+		return mv;
+		
+	}
+	@RequestMapping(value = "updateNews")
 	public ModelAndView updateNews(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mv = new ModelAndView("admin/news_edit"); 
@@ -78,4 +100,44 @@ public class ManagerNewsController {
 		mv.addObject("newsData", data);*/
         return mv;
     }
+	
+	
+	
+	@RequestMapping("/addNews")
+	 public ModelAndView addNews(HttpServletRequest request, HttpServletResponse response){
+	//	ModelAndView mv = new ModelAndView("admin/news_add"); 
+		
+		
+		String newsId = request.getParameter("newsId");
+		String title = request.getParameter("title");
+		String cataId = request.getParameter("cataId");
+		String newsContent = request.getParameter("newsContent");
+		System.out.println(newsId);
+		System.out.println(title);
+		System.out.println(cataId);
+		System.out.println(newsContent);
+		 
+		System.out.println("----------------------------------------------------------------------");
+		NewsData newsData = new NewsData();
+		newsData.setCataId(cataId);
+		newsData.setContent(newsContent);
+		newsData.setTitle(title);
+		newsData.setHits(getRandom(1000,9000));
+		newsDataMapper.insertData(newsData);
+		System.out.println("查看新闻id："+ newsData.getId() );
+		ModelAndView mv = listAllNews();
+		return mv;
+		
+	 }
+	
+	
+	public static String getRandom(int min, int max){
+	    Random random = new Random();
+	    int s = random.nextInt(max) % (max - min + 1) + min;
+	    return String.valueOf(s);
+
+	}
+	
+	
+	
 }

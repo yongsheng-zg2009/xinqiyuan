@@ -82,8 +82,10 @@
             <tr>
               <td width="100%" valign="top" style="line-height:150%;"><p> 
               <font id="zoom" style="line-height:150%; font-size:14px">
+              <c:if test="${not empty newsData.saveFileName}">
+              	<img src="/Admin/News/UploadFile/${newsData.saveFileName}" border="0"/>
+              </c:if>
               
-              <img src="/Admin/News/UploadFile/${newsData.saveFileName}" border="0">
               ${newsData.content }
             </tr>
             <tr>

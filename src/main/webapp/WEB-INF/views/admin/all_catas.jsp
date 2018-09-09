@@ -35,7 +35,7 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>基本
-                        <small>分类，查找</small>
+                        <small>分类，查找</small><small><a href="/manager/toNewsAddPage">添加内容</a></small>
                     </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">

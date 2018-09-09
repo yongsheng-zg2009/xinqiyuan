@@ -26,6 +26,18 @@
    		   	where D_CataID = #{cataId} order by D_ID desc limit #{startNo}, #{size} 
     </select>
     
+    
+        <select id="listAllNews" resultMap="NewsDataMap" >
+			SELECT 
+				 	D_ID as id, D_CataID as cataId, D_Title as title, D_Content as content, 
+				 	D_Picture as picture, D_SaveFileName as saveFileName, D_SavePathFileName as savePathFileName, 
+				 	D_AddTime as createTime, D_Num as num , D_Hits as hits  
+   		   	FROM newsdata 
+   		   	 order by D_ID desc limit #{startNo}, #{size} 
+    </select>
+    
+    
+    
     <select id="getNewsDataByCataIdRelation" resultMap="NewsDataMap" >
 		SELECT 
 		      D_ID as id, D_CataID as cataId, D_Title as title, D_Content as content,
@@ -36,6 +48,13 @@
 		like CONCAT(#{cataId}, '%') order by D_ID limit 0, 12  
     </select>
     
+
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="id">
+		insert into newsdata(D_CataID, D_Title,D_Content, D_Picture, D_SaveFileName, D_SavePathFileName, D_AddTime, D_Num, D_Hits)
+		values (#{cataId},#{title},#{content},#{picture},#{saveFileName},
+		#{savePathFileName},#{createTime},#{num},#{hits})
+	</insert>
+        
     
      <select id="getRecommendProducts" resultMap="NewsDataMap" >
     
