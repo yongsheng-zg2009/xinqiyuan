@@ -8,10 +8,13 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.xqy.yongyou.dao.SysAdminMapper;
+import com.xqy.yongyou.util.Md5Util;
 import com.xqy.yongyou.util.StringUtils;
 
 
@@ -20,6 +23,9 @@ import com.xqy.yongyou.util.StringUtils;
 public class LoginController {
 	
 	private static Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
+	@Autowired
+	private SysAdminMapper sysAdminMapper;
 	/**
 	 * 首页
 	 * @return
@@ -43,15 +49,19 @@ public class LoginController {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		 if(!StringUtils.isBlank(userName)&& !StringUtils.isBlank(password)){
-			 // 生成token
-			 HttpSession session = request.getSession();
-			 session.setAttribute("username", "testsession"); //存储在Session中  
+			 
+			 String enryPwd = Md5Util.getPwd(password.trim());
+			 int num = sysAdminMapper.countUserNum(userName.trim(), enryPwd);
+			 if(num > 0){
+				 // 生成token
+				 HttpSession session = request.getSession();
+				 session.setAttribute("username", "testsession"); //存储在Session中  
+			 }
 		 }
 		 
 		try {
 			respons.sendRedirect("/manager/index");
 		} catch (IOException e) {
-			 
 			e.printStackTrace();
 		}
 		

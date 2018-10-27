@@ -45,14 +45,14 @@
 	                    </div>
 	                </div>
 	                <div class="ibox-content">
-	                    <form method="post" class="form-horizontal" id="addNewsForm" action="/manager/addNews">
+	                    <form method="post" class="form-horizontal" id="addNewsForm" action="">
 	                    
      
 	                        <div class="form-group">
 	                            <label class="col-sm-2 control-label">标题</label>
 	
 	                            <div class="col-sm-10">
-	                                <input type="text" class="form-control" value="${newsData.title }" name="title">
+	                                <input type="text" class="form-control" value="${newsData.title }" name="title" id="title">
 	                            </div>
 	                        </div>
 	                        <div class="hr-line-dashed"></div>
@@ -60,7 +60,7 @@
 	                            <label class="col-sm-2 control-label">选择分类</label>
 	
 	                            <div class="col-sm-10">
-	                                <select class="form-control m-b" name="cataId">
+	                                <select class="form-control m-b" name="cataId" id="cataId">
 	                                <c:forEach items="${allCatas}" var="data">
 	                              		  <option value="${data.rootId }">${data.rootId }- ${data.title }</option>
 	                                </c:forEach>
@@ -81,7 +81,7 @@
 	                        <div class="form-group">
 	                            <div class="col-sm-4 col-sm-offset-2">
 	                                <button class="btn btn-primary" type="button" onclick="javascript:dosubmit();">保存内容</button>
-	                                <button class="btn btn-white" type="submit">取消</button>
+	                                <button class="btn btn-white"  id="btn_cancle">取消</button>
 	                            </div>
 	                        </div>
 	                    </form>
@@ -102,10 +102,14 @@
     <script>
         $(document).ready(function () {
 
+        	
             $('.summernote').summernote({
                 lang: 'zh-CN'
             });
-
+            // 取消按钮
+            $('#btn_cancle').on("click",function(){
+            	window.close();
+            })
         });
         var edit = function () {
             $("#eg").addClass("no-padding");
@@ -123,7 +127,31 @@
         function dosubmit(){
         	var summernoteContent = $("#summernoteContent").html();
         	$("#newsContent").val($(".note-editable").html());
-        	$("#addNewsForm").submit();
+        //	console.log($("#title").val());
+        //	console.log($("#cataId").val());
+        //	console.log($("#newsContent").val());
+
+         	var newWind = window.open("","_blank");
+       		var params = {cataId:$("#cataId").val(),title:$("#title").val(),newsContent:$("#newsContent").val()};
+       		$.ajax({
+                url:"/manager/addNewsAjax",
+                type:"post",
+                data:params,
+                success:function(data){
+                	var rs = $.parseJSON( data );
+                 	if(rs.success){
+                		 window.close();
+                		 alert("资源添加成功");
+                         newWind.location.href="/manager/listall/news"
+                	}else{
+                		alert(rs.message);
+                	}  
+                },
+                error:function(e){
+                    alert("错误！！");
+                    newWind.close();
+                }
+            }); 
         }
     </script>
 

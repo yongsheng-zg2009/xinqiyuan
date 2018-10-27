@@ -193,7 +193,7 @@ width="100%">
                       <TD height=21 align="center" ><table width="100%" height="533" border="0" align="right" cellpadding="1" cellspacing="1" bgcolor="#dfdfdf">
         <tr>
           <td height="30" style=" background:url(/image/banner_bj_x.jpg) bottom repeat-x">&nbsp;
-       <a href=/>网站首页</a><img src="/admin/img/i_dot.gif"><a href='/newsCata/A0001.html'>新闻动态</a><img src="/Admin/img/i_dot.gif"><a href='/newsCata/A00010005.html'><font color=red>最新签约</font></a><img src="/Admin/img/i_dot.gif">正文</td>
+       <a href=/>网站首页</a><img src="/Admin/img/i_dot.gif"><a href='/newsCata/A0001.html'>新闻动态</a><img src="/Admin/img/i_dot.gif"><a href='/newsCata/A00010005.html'><font color=red>最新签约</font></a><img src="/Admin/img/i_dot.gif">正文</td>
         </tr>
         <tr>
           <td valign="top" bgcolor="#ffffff"><table width="99%"  border="0" align="center" cellpadding="0" cellspacing="0">
@@ -219,11 +219,7 @@ width="100%">
     
     <h2>${newsData.content }</h2>
     
-    
-    
-    
-              
-              
+
               </td>
             </tr>
             <tr>

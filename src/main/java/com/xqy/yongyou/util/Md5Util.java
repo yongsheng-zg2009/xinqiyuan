@@ -8,8 +8,8 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Md5Util {
 	
-	private final static String enkey="nysqweasd";
-
+//	private final static String enkey="nysqweasd";
+	private final static String enkey="zhangyinbin_xqy_guanli";
 	/**
 	 * 获取MD5加密
 	 * 

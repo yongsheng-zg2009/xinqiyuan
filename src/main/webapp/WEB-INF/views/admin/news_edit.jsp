@@ -24,8 +24,8 @@
 	        <div class="col-sm-12">
 	            <div class="ibox float-e-margins">
 	                <div class="ibox-title">
-	                    <h5>所有表单元素
-	                        <small>包括自定义样式的复选和单选按钮</small>
+	                    <h5>查看发布的新闻：
+	                        <small><a href="/${newsData.id }.html" target="_blank">${newsData.title }</a></small>
 	                    </h5>
 	                    <div class="ibox-tools">
 	                        <a class="collapse-link">
@@ -50,7 +50,7 @@
 	                            <label class="col-sm-2 control-label">id</label>
 	
 	                            <div class="col-sm-10">
-	                                <input type="text"  readonly="readonly" placeholder="资源id" class="form-control" value="${newsData.id }" name="newsId"/>
+	                                <input type="text"  readonly="readonly" placeholder="资源id" class="form-control" value="${newsData.id }" name="newsId" id="newsId"/>
 	                            </div>
 	                     </div>
 	                     <div class="hr-line-dashed"></div>
@@ -58,26 +58,30 @@
 	                            <label class="col-sm-2 control-label">标题</label>
 	
 	                            <div class="col-sm-10">
-	                                <input type="text" class="form-control" value="${newsData.title }" name="title">
+	                                <input type="text" class="form-control" value="${newsData.title }" name="title" id="title">
 	                            </div>
 	                        </div>
 							<div class="hr-line-dashed"></div>
 	                        <div class="form-group">
 	                            <label class="col-sm-2 control-label">所属类型</label>
-	
 	                            <div class="col-sm-10">
-	                                <input type="text" class="form-control" value="${newsData.cataId }" >
+	                                <input type="text" class="form-control" value="${newsData.cataId }"  readonly="readonly" id="sourceCataId">
 	                            </div>
 	                        </div>
 	                        <div class="hr-line-dashed"></div>
 	                        <div class="form-group">
 	                            <label class="col-sm-2 control-label">更改所属分类</label>
-	
 	                            <div class="col-sm-10">
-	                                <select class="form-control m-b" name="changeCataId">
-	                                <c:forEach items="${allCatas}" var="data">
-	                                <option value="${data.rootId }">${data.rootId }- ${data.title }</option>
-	                                </c:forEach>
+	                                <select class="form-control m-b" name="changeCataId" id="changeCataId">
+		                                <c:forEach items="${allCatas}" var="data">
+		                                     <c:choose>
+			                                     <c:when test="${data.rootId == newsData.cataId }"> <option value="${data.rootId }" selected="selected">${data.rootId }- ${data.title }</option></c:when>
+			                                     <c:otherwise>
+			                                    	 <option value="${data.rootId }">${data.rootId }- ${data.title }</option>
+			                                     </c:otherwise>
+		                                     </c:choose>
+		                               		 
+		                                </c:forEach>
 	                                </select>
 	                            </div>
 	                        </div>
@@ -92,7 +96,7 @@
 	                        <div class="form-group">
 	                            <div class="col-sm-4 col-sm-offset-2">
 	                                <button class="btn btn-primary" type="button" onclick="javascript:dosubmit();">保存内容</button>
-	                                <button class="btn btn-white" type="submit">取消</button>
+	                                <button class="btn btn-white"  id = "btn_cancel">取消</button>
 	                            </div>
 	                        </div>
 	                    </form>
@@ -111,12 +115,15 @@
     <script src="/acs/common/hplus-4.0/js/plugins/summernote/summernote.min.js"></script>
     <script src="/acs/common/hplus-4.0/js/plugins/summernote/summernote-zh-CN.js"></script>
     <script>
+    
         $(document).ready(function () {
-
             $('.summernote').summernote({
                 lang: 'zh-CN'
             });
-
+            // 取消按钮
+            $('#btn_cancel').on("click",function(){
+            	window.close();
+            })
         });
         var edit = function () {
             $("#eg").addClass("no-padding");
@@ -134,11 +141,21 @@
         function dosubmit(){
         	var summernoteContent = $("#summernoteContent").html();
         	$("#newsContent").val($(".note-editable").html());
-        	
- 
-        //	alert($(".note-editable").html());
-       // console.log($(".note-editable").html());
-        	$("#updateForm").submit();
+        	var newWind = window.open("","_blank");
+       		var params = {newsId:$("#newsId").val(),title:$("#title").val(),sourceCataId:$("#sourceCataId").val(),changeCataId:$("#changeCataId").val(),newsContent:$("#newsContent").val()};
+       		$.ajax({
+                url:"/manager/updateNewsAjax",
+                type:"post",
+                data:params,
+                success:function(data){
+                    window.close();
+                    newWind.location.href="/manager/news2edit/${newsData.id }"
+                },
+                error:function(e){
+                    alert("错误！！");
+                    newWind.close();
+                }
+            });
         }
     </script>
 

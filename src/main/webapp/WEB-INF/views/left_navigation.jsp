@@ -33,6 +33,29 @@
 							</td>
 						</tr>
 						<!--用友大中型ERP系列 -- end   -->
+						<!--用友云ERP系列 -- start   -->
+						<tr>
+							<td height=22><a href='/products/A00020006.html'><font style='FONT-SIZE: 12px; font-weight: bold; color: #ff0000'>${yyCloudCata.title }</font></a></td>
+						</tr>
+						<td height=2 background=/image/index_hs_zh_32.jpg></td>
+						<tr>
+							<td>
+								<table cellSpacing=2 cellPadding=0 width='100%'align=center style='background-color: #f5f5f5'>
+									<c:forEach items="${yyCloudNews}" var="data">
+										    <tr>
+												<td width=10 align=center valign=middle><IMG src=/image/index_hs_zh_35.jpg align=absMiddle></td>
+												<td><a href='/${data.id }.html'><font style='FONT-FAMILY: 宋体'>${data.title }</font></a>
+											</tr>
+											<tr>
+												<td height=1 colspan=2 background=/image/index_hs_zh_56.jpg style='padding-left: 20px'></td>
+											</tr>
+									</c:forEach>
+								</table>
+							</td>
+						</tr>
+						<!--用友云ERP系列 -- end   -->
+						
+						
 						
 						<!--用友中小型ERP系列 -->
 						<tr>

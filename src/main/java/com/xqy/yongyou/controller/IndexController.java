@@ -51,6 +51,12 @@ public class IndexController {
 		// 用友大中型系列
 		NewsCata yybigMiddleSeriesCata = newsCataMapper.getNewsCataByCataId("A00020001");
 		List<NewsData>  yybigMiddleNews = newsDataMapper.getNewsDataByCataId("A00020001", 0, DEFAULT_SIZE);
+		
+		//用友云系列
+		NewsCata  yyCloudCata = newsCataMapper.getNewsCataByCataId("A00020006");
+		List<NewsData>  yyCloudNews = newsDataMapper.getNewsDataByCataId("A00020006", 0, DEFAULT_SIZE);
+		
+		
 		// 用友中小型系列
 		NewsCata yyMiddleSmalleSeriesCata = newsCataMapper.getNewsCataByCataId("A00020002");
 		List<NewsData>  yyMiddleSmalleNews = newsDataMapper.getNewsDataByCataId("A00020002", 0, DEFAULT_SIZE);
@@ -66,6 +72,10 @@ public class IndexController {
 		
 		mv.addObject("yybigMiddleSeriesCata", yybigMiddleSeriesCata);
 		mv.addObject("yybigMiddleNews", yybigMiddleNews);
+		
+		mv.addObject("yyCloudCata", yyCloudCata);
+		mv.addObject("yyCloudNews", yyCloudNews);
+		
 		
 		mv.addObject("yyMiddleSmalleSeriesCata", yyMiddleSmalleSeriesCata);
 		mv.addObject("yyMiddleSmalleNews", yyMiddleSmalleNews);
@@ -172,6 +182,7 @@ public class IndexController {
 		ModelAndView mv = new ModelAndView("productDetail");
 		fetchLeftCommonProductData(mv);
 		NewsData newsData = newsDataMapper.getNewsDataById(productId);
+//		newsData.setContent(newsData.getContent().replace("/admin/", "/Admin/"));
 		mv.addObject("newsData", newsData);
         return mv;
     }

@@ -3,6 +3,7 @@ package com.xqy.yongyou.entity;
 import java.io.Serializable;
 
 import com.xqy.yongyou.util.DateUtil;
+import com.xqy.yongyou.util.StringUtils;
 
 /**
  * 新闻数据
@@ -25,7 +26,17 @@ public class NewsData implements Serializable{
 	private String createTime;//分类名称
 	private String num;//分类名称
 	private String hits;//分类名称
+	private Integer status;//分类名称
 	
+	private Float sortId;
+	
+	
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
@@ -45,24 +56,38 @@ public class NewsData implements Serializable{
 		this.title = title;
 	}
 	public String getContent() {
+		if(!StringUtils.isBlank(content) && content.contains("/admin/")){
+			return content.replace("/admin/", "/Admin/");
+		}
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
 	public String getPicture() {
+		
+		if(!StringUtils.isBlank(picture) && picture.contains("/admin/")){
+			return picture.replace("/admin/", "/Admin/");
+		}
 		return picture;
 	}
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
 	public String getSaveFileName() {
+		
+		if(!StringUtils.isBlank(saveFileName) && saveFileName.contains("/admin/")){
+			return saveFileName.replace("/admin/", "/Admin/");
+		}
 		return saveFileName;
 	}
 	public void setSaveFileName(String saveFileName) {
 		this.saveFileName = saveFileName;
 	}
 	public String getSavePathFileName() {
+		if(!StringUtils.isBlank(savePathFileName) && savePathFileName.contains("/admin/")){
+			return savePathFileName.replace("/admin/", "/Admin/");
+		}
 		return savePathFileName;
 	}
 	public void setSavePathFileName(String savePathFileName) {
@@ -94,6 +119,12 @@ public class NewsData implements Serializable{
 	public String getCreateTimeYYYYMMDD(){
 		return DateUtil.formatDate(DateUtil.parseDate(createTime, DateUtil.PATTERN_YY_MM_DD_HHMMSS), DateUtil.PATTERN_YY_MM_DD);
 	}
-	
-	
+	public Float getSortId() {
+		return sortId;
+	}
+	public void setSortId(Float sortId) {
+		this.sortId = sortId;
+	}
+ 
+
 }

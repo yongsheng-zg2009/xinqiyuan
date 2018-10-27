@@ -60,58 +60,56 @@
                 </div>
                 <div class="ibox-content">
 
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>每页 <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> 条记录</label></div></div><div class="col-sm-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>查找：<input type="search" class="form-control input-sm" aria-controls="DataTables_Table_0"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                    <div class="row">
+	                    <div class="col-sm-6">
+		                    <div class="dataTables_length" id="DataTables_Table_0_length">
+			                    <label>
+			                    	每页 <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+			                   		<option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> 条记录
+			                    </label>
+		                    </div>
+	                    </div>
+	                    <div class="col-sm-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>查找1：<input type="search" class="form-control input-sm" aria-controls="DataTables_Table_0"></label></div>
+	                    </div>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
                         <thead>
                         <tr role="row">
-                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="渲染引擎：激活排序列升序" style="width: 195px;">自增id</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="浏览器：激活排序列升序" style="width: 331px;">cataId</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="平台：激活排序列升序" style="width: 300px;">title</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="引擎版本：激活排序列升序" style="width: 131px;">content</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS等级：激活排序列升序" style="width: 126px;">picture</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS等级：激活排序列升序" style="width: 126px;">saveFileName</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS等级：激活排序列升序" style="width: 126px;">createTime</th>
-						<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS等级：激活排序列升序" style="width: 126px;">num</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS等级：激活排序列升序" style="width: 126px;">hits</th>
-                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS等级：激活排序列升序" style="width: 126px;">操作</th>
+                        <th class="sorting_asc" tabindex="0"  rowspan="1" colspan="1" >自增id</th>
+                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1"  >cataId</th>
+                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1"  >title</th>
+                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1"  >content</th>
+
+                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1"  >操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         
                         <c:forEach items="${cataNews}" var="data">
-                        <tr class="gradeA odd">
+                        <tr class="gradeA odd" >
 							<td class="sorting_1"><a href="/${data.id }.html">${data.id }</a></td>
                             <td class=" ">${data.cataId }</td>
                             <td class=" ">${data.title }</td>
                             <td class="center ">内容省略</td>
-                            <td class="center ">${data.picture }</td>
-                            <td class="center ">${data.saveFileName }</td>
-                            <td class="center ">${data.savePathFileName }</td>
-                            <td class="center ">${data.num }</td>
-                            <td class="center ">${data.hits }</td>
-                            <td class="center "><a href="/manager/news2edit/${data.id }">编辑</a></td>
+                            
+                            <td class="center ">
+                            	<a href="/manager/news2edit/${data.id }">编辑</a>
+	                            <c:choose>
+		                            <c:when test="${ data.status == 1}">|<a  href="javascript:void(0);" id="hideNews" onclick="javascript:hideNews(${data.id})">下架</a></c:when>
+		                            <c:otherwise>|<a href="javascript:void(0);" id="showNews" onclick="javascript:showNews(${data.id})">上架</a> </c:otherwise>
+	                            </c:choose>
+                            </td>
                         </tr>
                         </c:forEach>
-	                        <!--  
-		                        <tr class="gradeA even">
-		                            <td class="sorting_1">${data.id }</td>
-		                            <td class=" ">Firefox 1.0</td>
-		                            <td class=" ">Win 98+ / OSX.2+</td>
-		                            <td class="center ">1.7</td>
-		                            <td class="center ">A</td>
-		                        </tr>
-	                        -->
                         </tbody>
                         <tfoot>
 	                        <tr>
 		                        <th rowspan="1" colspan="1">自增id</th>
+		                        <th rowspan="1" colspan="1">cataId</th>
+		                        
 		                        <th rowspan="1" colspan="1">title</th>
 		                        <th rowspan="1" colspan="1">content</th>
-		                        <th rowspan="1" colspan="1">picture</th>
-		                        <th rowspan="1" colspan="1">saveFileName</th>
-		                        <th rowspan="1" colspan="1">savePathFileName</th>
-		                        <th rowspan="1" colspan="1">createTime</th>
-		                        <th rowspan="1" colspan="1">num</th>
-		                        <th rowspan="1" colspan="1">hits</th>
 		                         <th rowspan="1" colspan="1">操作</th>
 	                        </tr>
                         </tfoot>
@@ -123,8 +121,52 @@
     </div>
     
 	</div>
-
-
+    <!-- 全局js -->
+    <script src="/acs/common/hplus-4.0/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/acs/common/hplus-4.0/js/bootstrap.min.js?v=3.3.5"></script>
+    <!-- 自定义js -->
+    <script src="/acs/common/hplus-4.0/js/content.js?v=1.0.0"></script>
+    <!-- SUMMERNOTE -->
+    <script src="/acs/common/hplus-4.0/js/plugins/summernote/summernote.min.js"></script>
+    <script src="/acs/common/hplus-4.0/js/plugins/summernote/summernote-zh-CN.js"></script>
+    
+    <script type="text/javascript">
+    
+    function hideNews(id){
+    	console.log('hide' + id);
+    	dealNewsStatus(id, -1);
+    }
+    
+    function showNews(id){
+    	console.log('show' + id);
+    	dealNewsStatus(id, 1);
+    }
+    function dealNewsStatus(id,status){
+    	var dealUrl = '';
+    	if(status == 1){
+    		dealUrl = '/manager/showNewsAjax';
+    	}else{
+    		dealUrl = '/manager/hideNewsAjax';
+    	}
+    	var params = {newsId:id};
+    	console.log('params' + params);
+    	console.log('dealUrl' + dealUrl);
+    	
+   		$.ajax({
+            url:dealUrl,
+            type:"post",
+            data:params,
+            success:function(data){
+            	console.log(data);
+            	alert("处理成功请刷新页面");
+             
+            },
+            error:function(e){
+                alert("错误！！");
+            }
+        });
+    }
+    </script>
 </body>
 </html>
 

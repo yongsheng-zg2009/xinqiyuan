@@ -71,10 +71,16 @@
                             <li>
                                 <a class="J_menuItem" href="/manager/listall/catas" data-index="0">资源类型管理</a>
                             </li> 
-                            <!--
+                            
+                            
                             <li>
-                                <a class="J_menuItem" href="/manager/listall/news">添加资源</a>
+                                <a class="J_menuItem" href="/manager/toNewsAddPage">添加资源</a>
                             </li>
+                            <li>
+                                <a class="J_menuItem" href="/manager/listall/news">所有资源</a>
+                            </li>
+
+                            <!--
                              <li>
                                 <a class="J_menuItem" href="index_v3.html">主页示例三</a>
                             </li>

@@ -91,24 +91,16 @@
                             <td class="center "><a href="/manager/news2edit/${data.id }">编辑</a></td>
                         </tr>
                         </c:forEach>
-	                        <!--  
-		                        <tr class="gradeA even">
-		                            <td class="sorting_1">${data.id }</td>
-		                            <td class=" ">Firefox 1.0</td>
-		                            <td class=" ">Win 98+ / OSX.2+</td>
-		                            <td class="center ">1.7</td>
-		                            <td class="center ">A</td>
-		                        </tr>
-	                        -->
                         </tbody>
                         <tfoot>
 	                        <tr>
 		                        <th rowspan="1" colspan="1">自增id</th>
+		                        <th rowspan="1" colspan="1">cataId</th>
+		                        
 		                        <th rowspan="1" colspan="1">title</th>
 		                        <th rowspan="1" colspan="1">content</th>
 		                        <th rowspan="1" colspan="1">picture</th>
 		                        <th rowspan="1" colspan="1">saveFileName</th>
-		                        <th rowspan="1" colspan="1">savePathFileName</th>
 		                        <th rowspan="1" colspan="1">createTime</th>
 		                        <th rowspan="1" colspan="1">num</th>
 		                        <th rowspan="1" colspan="1">hits</th>

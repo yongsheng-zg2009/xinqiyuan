@@ -6,9 +6,4 @@
 		<typeAlias alias="com.xqy.yongyou.entity.NewsCata" type="com.xqy.yongyou.entity.NewsCata" />
 		<typeAlias alias="com.xqy.yongyou.entity.NewsData" type="com.xqy.yongyou.entity.NewsData" />
 	</typeAliases>
-
-<!-- 	<mappers>
-		<mapper resource="com/xqy/yongyou/mapping/NewsCataMapper.xml" />
-		<mapper resource="com/xqy/yongyou/mapping/NewsDataMapper.xml" />
-	</mappers> -->
 </configuration> 

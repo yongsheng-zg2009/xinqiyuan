@@ -11,15 +11,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.xqy.yongyou.dao.NewsCataMapper;
 import com.xqy.yongyou.dao.NewsDataMapper;
+import com.xqy.yongyou.dto.Result;
 import com.xqy.yongyou.entity.NewsCata;
 import com.xqy.yongyou.entity.NewsData;
+import com.xqy.yongyou.util.StringUtils;
 
 @RestController
 @RequestMapping(value = "/manager/")
@@ -32,23 +34,17 @@ public class ManagerNewsController {
 	private NewsDataMapper newsDataMapper;
 
 	/**
-	 * 查看所有的新闻咨询
+	 * 进入资源列表页
 	 * @return
 	 */
 	@RequestMapping("listall/news")
     public ModelAndView listAllNews(){
 		ModelAndView mv = new ModelAndView("admin/all_news");
-		
-		List<NewsData> cataNews = newsDataMapper.listAllNews( 0, 10000);
+		List<NewsData> cataNews = newsDataMapper.listManagerAllNews( 0, 10000);
 		mv.addObject("cataNews", cataNews);
         return mv;
     }
 	
-	/**
-	 * 进入咨询编辑页面
-	 * @param newsId
-	 * @return
-	 */
 	@RequestMapping("news2edit/{newsId}")
     public ModelAndView news2edit(@PathVariable("newsId") String newsId){
 		ModelAndView mv = new ModelAndView("admin/news_edit");  
@@ -65,7 +61,7 @@ public class ManagerNewsController {
 	
 	
 	/**
-	 * 进入添加咨询页面
+	 * 进入资源添加页
 	 * @param request
 	 * @param response
 	 * @return
@@ -79,57 +75,127 @@ public class ManagerNewsController {
 		return mv;
 		
 	}
-	@RequestMapping(value = "updateNews")
-	public ModelAndView updateNews(HttpServletRequest request, HttpServletResponse response){
-		
-		ModelAndView mv = new ModelAndView("admin/news_edit"); 
+
+	/**
+	 * 更新资源信息
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "updateNewsAjax")
+	@ResponseBody
+	public String updateNewsAjax(HttpServletRequest request, HttpServletResponse response){
+		Result rs = new Result();
 		String newsId = request.getParameter("newsId");
 		String title = request.getParameter("title");
 		String changeCataId = request.getParameter("changeCataId");
+		String sourceCataId = request.getParameter("sourceCataId");
 		String newsContent = request.getParameter("newsContent");
-		System.out.println(newsId);
-		System.out.println(title);
-		System.out.println(changeCataId);
-		System.out.println(newsContent);
-		System.out.println("-0---------------------------------------------------------------------------");
-
-//		NewsData data = newsDataMapper.getNewsDataById(Integer.valueOf(newsId));
-/*		if(data == null ){
-			data = new NewsData();
+		String cataId = sourceCataId;
+		if(StringUtils.isBlank(newsId) || StringUtils.isBlank(title)|| StringUtils.isBlank(changeCataId)|| StringUtils.isBlank(sourceCataId) || StringUtils.isBlank(newsContent)){
+			rs.setSuccess(false);
+			rs.setMessage("缺少必填参数");
+			return JSONObject.toJSON(rs).toString();
 		}
-		mv.addObject("newsData", data);*/
-        return mv;
+		if(!changeCataId.trim().equals(sourceCataId.trim())){
+			cataId = changeCataId.trim();
+		}
+		NewsData data = new NewsData();
+		data.setId(Integer.parseInt(newsId));
+		data.setCataId(cataId);
+		data.setTitle(title);
+		data.setContent(newsContent);
+		newsDataMapper.updateData(data);
+		rs.setSuccess(true);
+		return JSONObject.toJSON(rs).toString();
     }
 	
+	/**
+	 * 添加资源
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/addNewsAjax")
+	@ResponseBody
+	 public String addNewsAjax(HttpServletRequest request, HttpServletResponse response){
 	
-	
-	@RequestMapping("/addNews")
-	 public ModelAndView addNews(HttpServletRequest request, HttpServletResponse response){
-	//	ModelAndView mv = new ModelAndView("admin/news_add"); 
-		
-		
-		String newsId = request.getParameter("newsId");
+		Result rs = new Result();
+ 
 		String title = request.getParameter("title");
 		String cataId = request.getParameter("cataId");
 		String newsContent = request.getParameter("newsContent");
-		System.out.println(newsId);
-		System.out.println(title);
-		System.out.println(cataId);
-		System.out.println(newsContent);
-		 
-		System.out.println("----------------------------------------------------------------------");
+		if(StringUtils.isBlank(cataId) || StringUtils.isBlank(title) || StringUtils.isBlank(newsContent)){
+			rs.setSuccess(false);
+			rs.setMessage("缺少必填参数");
+			return JSONObject.toJSON(rs).toString();
+		}
 		NewsData newsData = new NewsData();
 		newsData.setCataId(cataId);
 		newsData.setContent(newsContent);
 		newsData.setTitle(title);
 		newsData.setHits(getRandom(1000,9000));
 		newsDataMapper.insertData(newsData);
-		System.out.println("查看新闻id："+ newsData.getId() );
-		ModelAndView mv = listAllNews();
-		return mv;
 		
+		NewsData updateData = new NewsData();
+		updateData.setId(newsData.getId());
+		updateData.setSortId(Float.parseFloat(String.valueOf(newsData.getId())));
+		newsDataMapper.updateData(updateData);
+		rs.setSuccess(true);
+		return JSONObject.toJSON(rs).toString();
 	 }
 	
+	/**
+	 * 资源下架
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/hideNewsAjax")
+	@ResponseBody
+	 public String hideNewsAjax(HttpServletRequest request, HttpServletResponse response){
+	
+		Result rs = new Result();
+		String newsId = request.getParameter("newsId");
+		if(StringUtils.isBlank(newsId)){
+			rs.setSuccess(false);
+			rs.setMessage("缺少必填参数");
+			return JSONObject.toJSON(rs).toString();
+		}
+		NewsData newsData = new NewsData();
+		newsData.setStatus(-1);
+		newsData.setId(Integer.parseInt(newsId));
+		newsDataMapper.updateData(newsData);
+		rs.setSuccess(true);
+		return JSONObject.toJSON(rs).toString();
+	 }
+	
+	
+	/**
+	 * 资源下架
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/showNewsAjax")
+	@ResponseBody
+	 public String showNewsAjax(HttpServletRequest request, HttpServletResponse response){
+	
+		Result rs = new Result();
+		String newsId = request.getParameter("newsId");
+		if(StringUtils.isBlank(newsId)){
+			rs.setSuccess(false);
+			rs.setMessage("缺少必填参数");
+			return JSONObject.toJSON(rs).toString();
+		}
+		NewsData newsData = new NewsData();
+		newsData.setStatus(1);
+		
+		newsData.setId(Integer.parseInt(newsId));
+		newsDataMapper.updateData(newsData);
+		rs.setSuccess(true);
+		return JSONObject.toJSON(rs).toString();
+	 }
 	
 	public static String getRandom(int min, int max){
 	    Random random = new Random();
@@ -137,7 +203,4 @@ public class ManagerNewsController {
 	    return String.valueOf(s);
 
 	}
-	
-	
-	
 }

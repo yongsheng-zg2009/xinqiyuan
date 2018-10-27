@@ -61,7 +61,7 @@
                       <td height="21" align="center"><table width="100%" height="533" border="0" align="right" cellpadding="1" cellspacing="1" bgcolor="#dfdfdf">
         <tbody><tr>
           <td height="30" style="background:url(image/banner_bj_x.jpg) bottom repeat-x">&nbsp;
-       <a href="/">网站首页</a><img src="/Admin/img/i_dot.gif"><a href="/newsCata/A0002">产品展示</a><img src="/Admin/img/i_dot.gif"><a href="Product.asp?cataid=A00020002"><font color="red">用友中小型ERP系列</font></a><img src="/Admin/img/i_dot.gif">正文</td>
+       <a href="/">网站首页</a><img src="/Admin/img/i_dot.gif"><a href="/newsCata/A0002.html">产品展示</a><img src="/Admin/img/i_dot.gif"><font color="red">${newsData.title }</font><img src="/Admin/img/i_dot.gif">正文</td>
         </tr>
         <tr>
           <td valign="top" bgcolor="#ffffff"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -82,9 +82,6 @@
             <tr>
               <td width="100%" valign="top" style="line-height:150%;"><p> 
               <font id="zoom" style="line-height:150%; font-size:14px">
-              <c:if test="${not empty newsData.saveFileName}">
-              	<img src="/Admin/News/UploadFile/${newsData.saveFileName}" border="0"/>
-              </c:if>
               
               ${newsData.content }
             </tr>
