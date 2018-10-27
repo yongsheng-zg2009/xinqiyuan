@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xqy.yongyou.dao.SysAdminMapper">
+	<!-- 字段实体关系映射 -->
+	<resultMap id="SysAdminMap" type="com.xqy.yongyou.entity.SysAdmin">
+		<result column="A_UserID" property="cataId" jdbcType="VARCHAR" />  <!-- 分类编号 -->
+		<result column="A_PWD" property="title" jdbcType="VARCHAR" />  <!-- 分类名称 -->
+	</resultMap>
+	<select id="countUserNum" resultType="int">
+		SELECT  count(1)
+		FROM admin where A_UserID = #{userId} and A_PWD = #{pwd};
+	</select>
+</mapper>
