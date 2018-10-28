@@ -21,13 +21,13 @@
     </bean>
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
          <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-         <property name="url" value="jdbc:mysql://localhost:3306/pursuer?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=CTT&amp;useUnicode=true&amp;allowMultiQueries=true" />
+      <!--    <property name="url" value="jdbc:mysql://localhost:3306/pursuer?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=CTT&amp;useUnicode=true&amp;allowMultiQueries=true" />
         <property name="username" value="pursuer" />
-        <property name="password" value="xqyacpmpursuer" />  
-      <!-- 
+        <property name="password" value="xqyacpmpursuer" />  -->
+      
        <property name="url" value="jdbc:mysql://localhost:3307/yongyou_mh?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=CTT&amp;useUnicode=true&amp;allowMultiQueries=true" />
         <property name="username" value="root" />
-        <property name="password" value="ROOT" /> -->
+        <property name="password" value="ROOT" /> 
     </bean>
     
      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
