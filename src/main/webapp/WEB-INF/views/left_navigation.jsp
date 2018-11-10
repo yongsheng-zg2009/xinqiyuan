@@ -82,7 +82,7 @@
 						
 						<tr>
 							<td height=22><a href=/products/A00020003.html><font
-									style='FONT-SIZE: 12px; font-weight: bold; color: #ff0000'>用友其他系列</font></a></td>
+									style='FONT-SIZE: 12px; font-weight: bold; color: #ff0000'>用友政务系列</font></a></td>
 						</tr>
 						<td height=2 background=/image/index_hs_zh_32.jpg></td>
 						<tr>
@@ -101,7 +101,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td height=22><a href=/products/A00020004.html> <font style='FONT-SIZE: 12px; font-weight: bold; color: #ff0000'>行政事业版</font></a></td>
+							<td height=22><a href=/products/A00020004.html> <font style='FONT-SIZE: 12px; font-weight: bold; color: #ff0000'>用友其他系列</font></a></td>
 						</tr>
 						<td height=2 background=/image/index_hs_zh_32.jpg></td>
 						<tr>

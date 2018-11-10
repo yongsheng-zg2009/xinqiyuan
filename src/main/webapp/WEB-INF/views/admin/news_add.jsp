@@ -69,6 +69,47 @@
 	                        </div>
 	                        
 	                        <div class="hr-line-dashed"></div>
+	                        <div class="form-group">
+	                            <label class="col-sm-2 control-label">宣传图片</label>
+	
+	                            <div class="col-sm-10">
+
+
+
+ 									            <div class="ibox float-e-margins">
+									                <div class="ibox-title">
+									                    <h5>文件上传</h5>
+									                    <div class="ibox-tools">
+									                        <a class="collapse-link">
+									                            <i class="fa fa-chevron-up"></i>
+									                        </a>
+									                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_file_upload.html#">
+									                            <i class="fa fa-wrench"></i>
+									                        </a>
+									                        <ul class="dropdown-menu dropdown-user">
+									                            <li>
+									                                <a href="form_file_upload.html#">选项1</a>
+									                            </li>
+									                            <li>
+									                                <a href="form_file_upload.html#">选项2</a>
+									                            </li>
+									                        </ul>
+									                        <a class="close-link">
+									                            <i class="fa fa-times"></i>
+									                        </a>
+									                    </div>
+									                </div>
+									                <div class="ibox-content gray-bg">
+									                    <form id="my-awesome-dropzone" class="dropzone" action="form_file_upload.html#">
+									                        <div class="dropzone-previews"></div>
+									                        <button type="submit" class="btn btn-primary pull-right">提交</button>
+									                    </form>
+									                </div>
+									            </div>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="hr-line-dashed"></div>
 	                        <h5><b>添加内容文本：</b></h5>
 	                          <div class="summernote" id="summernoteContent">
 	                       		 ${newsData.content }

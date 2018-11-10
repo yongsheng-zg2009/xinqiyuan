@@ -1,5 +1,6 @@
 package com.xqy.yongyou.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -139,9 +140,26 @@ public class IndexController {
 	 * @param mv
 	 */
 	public void fetchRecommendProducts(final ModelAndView  mv){
-		// 用友大中型系列
-		List<NewsData> recommendProducts = newsDataMapper.getRecommendProducts("A0002");
-		mv.addObject("recommendProducts", recommendProducts);
+		
+		List<NewsData> list = new ArrayList<NewsData>();
+		list.add(newsDataMapper.getNewsDataById(837));
+		list.add(newsDataMapper.getNewsDataById(750));
+		list.add(newsDataMapper.getNewsDataById(838));
+		list.add(newsDataMapper.getNewsDataById(752));
+		list.add(newsDataMapper.getNewsDataById(747));
+		list.add(newsDataMapper.getNewsDataById(735));
+		list.add(newsDataMapper.getNewsDataById(770));
+		list.add(newsDataMapper.getNewsDataById(758));
+		list.add(newsDataMapper.getNewsDataById(751));
+
+		if(list.isEmpty()){
+			// 用友大中型系列
+			List<NewsData> recommendProducts = newsDataMapper.getRecommendProducts("A0002");
+			if(null != recommendProducts){
+				list.addAll(recommendProducts);
+			}
+		}
+		mv.addObject("recommendProducts", list);
 	}
 	
 	/**
@@ -157,10 +175,27 @@ public class IndexController {
 	
 	@RequestMapping("/products")
     public ModelAndView productsAll(){
+		
 		ModelAndView mv = new ModelAndView("productList");
-		fetchLeftCommonProductData(mv);	
-		List<NewsData> newsDatas = newsDataMapper.getNewsDataByCataIdRelation("A0002");
-		mv.addObject("newsDatas", newsDatas);
+		List<NewsData> list = new ArrayList<NewsData>();
+		list.add(newsDataMapper.getNewsDataById(837));
+		list.add(newsDataMapper.getNewsDataById(750));
+		list.add(newsDataMapper.getNewsDataById(838));
+		list.add(newsDataMapper.getNewsDataById(752));
+		list.add(newsDataMapper.getNewsDataById(747));
+		list.add(newsDataMapper.getNewsDataById(735));
+		list.add(newsDataMapper.getNewsDataById(770));
+		list.add(newsDataMapper.getNewsDataById(758));
+		list.add(newsDataMapper.getNewsDataById(751));
+
+		if(list.isEmpty()){
+			// 用友大中型系列
+			List<NewsData> recommendProducts = newsDataMapper.getRecommendProducts("A0002");
+			if(null != recommendProducts){
+				list.addAll(recommendProducts);
+			}
+		}
+		mv.addObject("newsDatas", list);
         return mv;
     }
 	@RequestMapping("/products/{cataId}.html")

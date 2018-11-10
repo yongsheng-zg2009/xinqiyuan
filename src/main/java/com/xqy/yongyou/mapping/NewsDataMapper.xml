@@ -28,7 +28,7 @@
 		D_AddTime as createTime, D_Num as num , D_Hits as
 		hits
 		FROM newsdata
-		where D_CataID = #{cataId} order by D_SortID desc, D_ID desc limit
+		where D_CataID = #{cataId} and status =1 order by D_SortID desc, D_ID desc limit
 		#{startNo}, #{size}
 	</select>
 
@@ -97,6 +97,11 @@
 		hits
 		FROM newsdata where D_ID = #{newsId};
 	</select>
+	
+	
+
+	
+	
 	
 	<update id="updateData">
 		update newsdata
