@@ -84,7 +84,9 @@
             </tr>
           </tbody></table>
           <!-- 分页 开始 -->
+          <!--  
           <table width="100%" border="0" cellspacing="0" cellpadding="5" class="s"><tbody><tr><td height="20" class="nav" align="center">共30条记录 每页显示12条 共3页 当前为第1页 首页 | 上一页 | <a href="?CataID=A0002&amp;page=2">下一页</a> | <a href="?CataID=A0002&amp;page=3">末页</a> </td></tr></tbody></table>
+          -->
           <!-- 分页 结束 -->
         </td>
         </tr>

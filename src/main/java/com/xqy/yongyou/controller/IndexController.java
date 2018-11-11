@@ -178,16 +178,11 @@ public class IndexController {
 		
 		ModelAndView mv = new ModelAndView("productList");
 		List<NewsData> list = new ArrayList<NewsData>();
-		list.add(newsDataMapper.getNewsDataById(837));
-		list.add(newsDataMapper.getNewsDataById(750));
-		list.add(newsDataMapper.getNewsDataById(838));
-		list.add(newsDataMapper.getNewsDataById(752));
-		list.add(newsDataMapper.getNewsDataById(747));
-		list.add(newsDataMapper.getNewsDataById(735));
-		list.add(newsDataMapper.getNewsDataById(770));
-		list.add(newsDataMapper.getNewsDataById(758));
-		list.add(newsDataMapper.getNewsDataById(751));
-
+		List<Integer> ids = new ArrayList<Integer>();
+		ids.add(837);ids.add(750);ids.add(838);
+		ids.add(752);ids.add(747);ids.add(735);
+		ids.add(770);ids.add(758);ids.add(751);
+		list = newsDataMapper.getNewsDatasByIds(ids);
 		if(list.isEmpty()){
 			// 用友大中型系列
 			List<NewsData> recommendProducts = newsDataMapper.getRecommendProducts("A0002");

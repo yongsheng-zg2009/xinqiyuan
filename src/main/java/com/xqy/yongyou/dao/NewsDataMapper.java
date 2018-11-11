@@ -21,5 +21,6 @@ public interface NewsDataMapper {
     List<NewsData> listAllNews(@Param("startNo") int startNo, @Param("size") int size);
     List<NewsData> listManagerAllNews(@Param("startNo") int startNo, @Param("size") int size);
     NewsData getNewsDataById(@Param("newsId") Integer newsId);
+    List<NewsData> getNewsDatasByIds(@Param("ids") List<Integer> ids);
     
 }

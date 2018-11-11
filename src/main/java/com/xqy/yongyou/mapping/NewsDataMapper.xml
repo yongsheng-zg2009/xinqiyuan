@@ -99,9 +99,21 @@
 	</select>
 	
 	
+	<select id="getNewsDatasByIds" resultMap="NewsDataMap">
 
-	
-	
+		SELECT D_ID as id,
+		D_CataID as cataId, D_Title as title, D_Content as
+		content,
+		D_Picture as
+		picture, D_SaveFileName as saveFileName, D_SavePathFileName as
+		savePathFileName,
+		D_AddTime as createTime, D_Num as num , D_Hits as
+		hits
+		FROM newsdata where D_ID in 
+		<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+				#{item}
+		</foreach>
+	</select>
 	
 	<update id="updateData">
 		update newsdata

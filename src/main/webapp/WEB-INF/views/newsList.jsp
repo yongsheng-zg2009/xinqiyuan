@@ -219,7 +219,7 @@ width="100%">
                             </c:forEach>  
                               
                             </table>
-
+<!--  
                               <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td height="25"><div align="left">&nbsp;&nbsp;共&nbsp;18&nbsp;条新闻&nbsp;当前 <font color="#FF0000">1</font>/1 页 每页 20 条</font></div></td>
@@ -227,7 +227,8 @@ width="100%">
                                         <a href="?cataid=A00010005&keyword=&pageno=1" class="tt5">首页</a>&nbsp;<a href="?cataid=A00010005&keyword=&pageno=0" class="tt5">上一页</a><a href='?cataid=A00010005&keyword=&pageno=1' class=tt5>1</a>&nbsp;&nbsp;<a href="?cataid=A00010005&keyword=&pageno=2" class="tt5">下一页</a>&nbsp;<a href="?cataid=A00010005&keyword=&pageno=1" class="tt5">尾页</a>&nbsp;&nbsp;
                                     </div></td>
                                 </tr>
-                              </table>                            </td>
+                              </table>     -->
+                                                     </td>
                         </tr>
                     </table></td>
                   </tr>
