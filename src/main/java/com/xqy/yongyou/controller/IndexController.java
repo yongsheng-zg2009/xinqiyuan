@@ -44,10 +44,118 @@ public class IndexController {
         return mv;
     }
 	
+	
+	public void fetchLeftCommonProductData(final ModelAndView  mv){
+		
+		List<String> cataIds =  new ArrayList<String>();
+		cataIds.add("A00020001");
+		cataIds.add("A00020002");
+		cataIds.add("A00020003");
+		cataIds.add("A00020004");
+		cataIds.add("A00020005");
+		cataIds.add("A00020006");
+		List<NewsCata> cataList = newsCataMapper.getNewsCatasByCataIds(cataIds);
+		// 用友大中型系列
+		NewsCata yybigMiddleSeriesCata = null;
+		//用友云系列
+		NewsCata  yyCloudCata = null;
+		// 用友中小型系列
+		NewsCata yyMiddleSmalleSeriesCata = null;
+		// 用友其他系列
+		NewsCata yyOtherSeriesCata = null;
+		// 行政职能系列
+		NewsCata affairSeriesCata = null;
+		// 关联产品
+		NewsCata yyRelationSeriesCata = null;
+		
+		 for(int i=0 ; i< cataList.size(); i++ ){
+			 NewsCata tempData = cataList.get(i); 
+			 if("A00020001".equals(tempData.getRootId())){
+				 yybigMiddleSeriesCata = tempData; 
+			 }else if("A00020006".equals(tempData.getRootId())){
+				 yyCloudCata = tempData;
+			 }else if("A00020002".equals(tempData.getRootId())){
+				 yyMiddleSmalleSeriesCata = tempData;
+			 }else if("A00020003".equals(tempData.getRootId())){
+				 yyOtherSeriesCata = tempData;
+			 }else if("A00020004".equals(tempData.getRootId())){
+				 affairSeriesCata = tempData;
+			 }else if("A00020005".equals(tempData.getRootId())){
+				 yyRelationSeriesCata = tempData;
+			 }
+			 
+		 }
+/*		// 用友大中型系列
+		NewsCata yybigMiddleSeriesCata = newsCataMapper.getNewsCataByCataId("A00020001");
+		//用友云系列
+		NewsCata  yyCloudCata = newsCataMapper.getNewsCataByCataId("A00020006");
+		// 用友中小型系列
+		NewsCata yyMiddleSmalleSeriesCata = newsCataMapper.getNewsCataByCataId("A00020002");
+		// 用友其他系列
+		NewsCata yyOtherSeriesCata = newsCataMapper.getNewsCataByCataId("A00020003");
+		// 行政职能系列
+		NewsCata affairSeriesCata = newsCataMapper.getNewsCataByCataId("A00020004");
+		// 关联产品
+		NewsCata yyRelationSeriesCata = newsCataMapper.getNewsCataByCataId("A00020005");*/
+		
+/*		List<String> cataIds =  new ArrayList<String>();
+		cataIds.add("A00020001");
+		cataIds.add("A00020002");
+		cataIds.add("A00020003");
+		cataIds.add("A00020004");
+		cataIds.add("A00020005");
+		cataIds.add("A00020006");*/
+		List<NewsData> allList = newsDataMapper.getNewsDatasByCataIds(cataIds, 0, DEFAULT_SIZE);
+		
+		List<NewsData>  yybigMiddleNews = new ArrayList<NewsData>(); 
+		List<NewsData>  yyCloudNews = new ArrayList<NewsData>();
+		List<NewsData>  yyMiddleSmalleNews = new ArrayList<NewsData>();
+		List<NewsData>  yyOtherSeriesNews = new ArrayList<NewsData>();
+		List<NewsData>  affairSeriesNews = new ArrayList<NewsData>();
+		List<NewsData>  yyRelationSeriesNews = new ArrayList<NewsData>();
+		for(int i=0 ; i< allList.size(); i++ ){
+			NewsData tempData = allList.get(i);
+			if("A00020001".equals(tempData.getCataId())){
+				yybigMiddleNews.add(tempData);
+			}else if("A00020006".equals(tempData.getCataId())){
+				yyCloudNews.add(tempData);
+			}else if("A00020002".equals(tempData.getCataId())){
+				yyMiddleSmalleNews.add(tempData);
+			}else if("A00020006".equals(tempData.getCataId())){
+				yyCloudNews.add(tempData);
+			}else if("A00020003".equals(tempData.getCataId())){
+				yyOtherSeriesNews.add(tempData);
+			}else if("A00020004".equals(tempData.getCataId())){
+				affairSeriesNews.add(tempData);
+			}else if("A00020005".equals(tempData.getCataId())){
+				yyRelationSeriesNews.add(tempData);
+			}
+		}
+		mv.addObject("yybigMiddleSeriesCata", yybigMiddleSeriesCata);
+		mv.addObject("yybigMiddleNews", yybigMiddleNews);
+		
+		mv.addObject("yyCloudCata", yyCloudCata);
+		mv.addObject("yyCloudNews", yyCloudNews);
+		
+		mv.addObject("yyMiddleSmalleSeriesCata", yyMiddleSmalleSeriesCata);
+		mv.addObject("yyMiddleSmalleNews", yyMiddleSmalleNews);
+		
+		mv.addObject("yyOtherSeriesCata", yyOtherSeriesCata);
+		mv.addObject("yyOtherSeriesNews", yyOtherSeriesNews);
+		
+		mv.addObject("affairSeriesCata", affairSeriesCata);
+		mv.addObject("affairSeriesNews", affairSeriesNews);
+		
+		mv.addObject("yyRelationSeriesCata", yyRelationSeriesCata);
+		mv.addObject("yyRelationSeriesNews", yyRelationSeriesNews);
+	}
+	
+	
+	
 	/**
 	 * 获取相关产品列表信息
 	 * @param mv
-	 */
+	 
 	public void fetchLeftCommonProductData(final ModelAndView  mv){
 		// 用友大中型系列
 		NewsCata yybigMiddleSeriesCata = newsCataMapper.getNewsCataByCataId("A00020001");
@@ -56,7 +164,6 @@ public class IndexController {
 		//用友云系列
 		NewsCata  yyCloudCata = newsCataMapper.getNewsCataByCataId("A00020006");
 		List<NewsData>  yyCloudNews = newsDataMapper.getNewsDataByCataId("A00020006", 0, DEFAULT_SIZE);
-		
 		
 		// 用友中小型系列
 		NewsCata yyMiddleSmalleSeriesCata = newsCataMapper.getNewsCataByCataId("A00020002");
@@ -77,7 +184,6 @@ public class IndexController {
 		mv.addObject("yyCloudCata", yyCloudCata);
 		mv.addObject("yyCloudNews", yyCloudNews);
 		
-		
 		mv.addObject("yyMiddleSmalleSeriesCata", yyMiddleSmalleSeriesCata);
 		mv.addObject("yyMiddleSmalleNews", yyMiddleSmalleNews);
 		
@@ -90,7 +196,7 @@ public class IndexController {
 		mv.addObject("yyRelationSeriesCata", yyRelationSeriesCata);
 		mv.addObject("yyRelationSeriesNews", yyRelationSeriesNews);
 	}
-	
+	*/
 
 	
 	
@@ -177,6 +283,7 @@ public class IndexController {
     public ModelAndView productsAll(){
 		
 		ModelAndView mv = new ModelAndView("productList");
+		fetchLeftCommonProductData(mv);	
 		List<NewsData> list = new ArrayList<NewsData>();
 		List<Integer> ids = new ArrayList<Integer>();
 		ids.add(837);ids.add(750);ids.add(838);

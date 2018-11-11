@@ -16,5 +16,8 @@ import com.xqy.yongyou.entity.NewsCata;
   */
 public interface NewsCataMapper{
     NewsCata getNewsCataByCataId(@Param("cataNo") String cataNo);
+    
+    List<NewsCata> getNewsCatasByCataIds(@Param("cataNos") List<String> cataNos);
+    
     List<NewsCata> listAll();
 }

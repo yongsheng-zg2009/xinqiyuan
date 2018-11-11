@@ -31,6 +31,29 @@
 		where D_CataID = #{cataId} and status =1 order by D_SortID desc, D_ID desc limit
 		#{startNo}, #{size}
 	</select>
+	
+	
+	<select id="getNewsDatasByCataIds" resultMap="NewsDataMap">
+		SELECT
+		D_ID as id,
+		D_CataID as cataId, D_Title as title, D_Content as content,
+		D_Picture
+		as picture, D_SaveFileName as saveFileName,
+		D_SavePathFileName as
+		savePathFileName,
+		D_AddTime as createTime, D_Num as num , D_Hits as
+		hits
+		FROM newsdata
+		where D_CataID in 		
+		<foreach collection="cataIds" index="index" item="item" open="(" separator="," close=")">
+				#{item}
+		</foreach>
+		and status =1 order by D_SortID desc, D_ID desc limit
+		#{startNo}, #{size}
+	</select>
+	
+
+
 
 
 

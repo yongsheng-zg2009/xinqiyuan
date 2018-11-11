@@ -23,6 +23,19 @@
     		  where C_RootID = #{cataNo};
     </select>
     
+    <select id="getNewsCatasByCataIds"  resultMap="BaseResultMap" >
+   	 		SELECT 
+				    C_ID as id, C_Title as title, C_RootID as rootId,
+				    C_Number as number, C_Remark as remark, 
+				    C_AddTime as createTime
+    		  FROM newscata 
+    		  where C_RootID in 
+    		  <foreach collection="cataNos" index="index" item="item" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+    </select>
+    
+    
     <select id="listAll"  resultMap="BaseResultMap" >
  	 	SELECT 
 		    C_ID as id, C_Title as title, C_RootID as rootId,

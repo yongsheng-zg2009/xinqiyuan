@@ -14,6 +14,8 @@ import com.xqy.yongyou.entity.NewsData;
 public interface NewsDataMapper {
 
     List<NewsData> getNewsDataByCataId(@Param("cataId") String cataId,@Param("startNo")int startNo,@Param("size")int size);
+    List<NewsData> getNewsDatasByCataIds(@Param("cataIds") List<String> cataIds,@Param("startNo")int startNo,@Param("size")int size);
+    
     int insertData(NewsData newsData);
     int updateData(NewsData newsData);
     List<NewsData> getNewsDataByCataIdRelation(@Param("cataId") String cataId);
