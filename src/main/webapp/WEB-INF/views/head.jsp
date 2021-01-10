@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--顶部-->
 
-<table border=0 cellSpacing=0 cellPadding=0 width=956 align=center>
+
+            
+           <table border=0 cellSpacing=0 cellPadding=0 width=956 align=center>
   <TBODY>
   <tr>
     <td height=87 vAlign=top>
@@ -18,8 +20,7 @@
             style="CURSOR: hand" 
             onclick="var strHref=window.location.href;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.hn-best.net/');">设为首页</SPAN>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
             href="javascript:window.external.AddFavorite('http://www.hn-best.net/','郑州用友——河南新起源软件科技有限公司')" 
-            target=_top>加入收藏</A></DIV></td></tr></TBODY></table></td></tr></TBODY></table>   
-            
+            target=_top>加入收藏</A></DIV></td></tr></TBODY></table></td></tr></TBODY></table>  
 <table border=0 cellSpacing=0 cellPadding=0 width=956 align=center><!--DWLayouttable-->
   <TBODY>
   <tr>
