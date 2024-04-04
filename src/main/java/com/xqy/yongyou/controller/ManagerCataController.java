@@ -1,5 +1,7 @@
 package com.xqy.yongyou.controller;
 
+import com.xqy.yongyou.dao.NewsCataMapper;
+import com.xqy.yongyou.dao.NewsDataMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.xqy.yongyou.dao.NewsCataMapper;
-import com.xqy.yongyou.dao.NewsDataMapper;
 
 @RestController
 @RequestMapping(value = "/manager/")

@@ -11,8 +11,6 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
    		 <!-- 自动扫描 -->
    <context:component-scan base-package="com.xqy.yongyou" />
-   
-  
    <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
@@ -42,7 +40,4 @@
 	  <property name="basePackage" value="com.xqy.yongyou.dao" />
 	  <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
  	</bean>
-
-    
-    
 </beans>

@@ -1,11 +1,12 @@
 package com.xqy.yongyou.controller;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.alibaba.fastjson.JSONObject;
+import com.xqy.yongyou.dao.NewsCataMapper;
+import com.xqy.yongyou.dao.NewsDataMapper;
+import com.xqy.yongyou.dto.Result;
+import com.xqy.yongyou.entity.NewsCata;
+import com.xqy.yongyou.entity.NewsData;
+import com.xqy.yongyou.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSONObject;
-import com.xqy.yongyou.dao.NewsCataMapper;
-import com.xqy.yongyou.dao.NewsDataMapper;
-import com.xqy.yongyou.dto.Result;
-import com.xqy.yongyou.entity.NewsCata;
-import com.xqy.yongyou.entity.NewsData;
-import com.xqy.yongyou.util.StringUtils;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping(value = "/manager/")
